@@ -41,6 +41,7 @@
 html { scroll-behavior: smooth; }
 
 body {
+   background: red;
   font-family: var(--font-body);
   color: var(--text-main);
   background: var(--cream);
