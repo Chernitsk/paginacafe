@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO -->
+  <title>Café Central – Donde Cada Sorbo Es Una Experiencia</title>
+  <meta name="description" content="Café Central: cafetería premium en el corazón de la ciudad. Disfruta de nuestros cafés de origen único, pastelerías artesanales y ambiente inigualable. Pedidos por WhatsApp." />
+  <meta name="keywords" content="cafetería, café premium, coffee shop, café artesanal, barista, pasteles, café de especialidad" />
+  <meta name="author" content="Café Central" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Café Central – Experiencia Premium de Café" />
+  <meta property="og:description" content="Cafetería premium con los mejores cafés de origen único. Pedidos por WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">☕</span>
+        <span class="logo-text">Café <em>Central</em></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#menu">Menú</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#galeria">Galería</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#ubicacion">Visítanos</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#menu" class="nav-cta">Ordenar Ahora</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1800&q=80" alt="Café Central ambiente" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Bienvenido a</p>
+      <h1 class="hero-title reveal">Café <em>Central</em></h1>
+      <p class="hero-subtitle reveal">Donde cada sorbo es una experiencia sensorial.<br>Café de origen único. Pastelería artesanal. Momentos inolvidables.</p>
+      <div class="hero-actions reveal">
+        <a href="#menu" class="btn-primary">Explorar Menú</a>
+        <a href="https://wa.me/5491100000000?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Café%20Central" class="btn-ghost" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Descubrir</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-badges">
+      <div class="badge reveal"><span class="badge-num">12+</span><span class="badge-label">Años de Experiencia</span></div>
+      <div class="badge reveal"><span class="badge-num">50+</span><span class="badge-label">Variedades de Café</span></div>
+      <div class="badge reveal"><span class="badge-num">98%</span><span class="badge-label">Clientes Satisfechos</span></div>
+    </div>
+  </section>
+
+  <!-- ── MENU ── -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Nuestra Oferta</p>
+        <h2 class="section-title">Menú <em>Digital</em></h2>
+        <p class="section-desc">Selecciona tus productos y envíanos el pedido directamente por WhatsApp</p>
+      </div>
+
+      <div class="menu-tabs">
+        <button class="tab-btn active" data-cat="cafes">Cafés</button>
+        <button class="tab-btn" data-cat="frios">Fríos</button>
+        <button class="tab-btn" data-cat="pasteles">Pastelerías</button>
+        <button class="tab-btn" data-cat="sandwiches">Sandwiches</button>
+        <button class="tab-btn" data-cat="desayunos">Desayunos</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+
+      <!-- Cart -->
+      <div class="cart-section" id="cartSection" style="display:none;">
+        <div class="cart-box">
+          <h3 class="cart-title">🛒 Tu Pedido</h3>
+          <div id="cartItems"></div>
+          <div class="cart-total">
+            <span>Total:</span>
+            <strong id="cartTotal">$0</strong>
+          </div>
+          <button class="btn-whatsapp" id="sendWhatsApp">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.989.574 3.842 1.567 5.408L2 22l4.74-1.542A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18a7.96 7.96 0 0 1-4.073-1.117l-.292-.174-3.028.985.947-3.02-.19-.31A7.96 7.96 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            Enviar Pedido por WhatsApp
+          </button>
+          <button class="btn-clear" id="clearCart">Limpiar carrito</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOBRE NOSOTROS ── -->
+  <section class="about-section" id="nosotros">
+    <div class="about-grid">
+      <div class="about-images">
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="Barista preparando café" loading="lazy" />
+        </div>
+        <div class="about-img-accent">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80" alt="Granos de café" loading="lazy" />
+        </div>
+        <div class="about-stamp">
+          <span>Desde</span>
+          <strong>2012</strong>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-eyebrow">Nuestra Historia</p>
+        <h2 class="section-title">Pasión por el <em>Café Perfecto</em></h2>
+        <p class="about-text">Nacimos con un sueño simple: crear el espacio donde la ciudad pudiera pausar, respirar y disfrutar de una taza de café verdaderamente excepcional.</p>
+        <p class="about-text">Trabajamos directamente con productores seleccionados de Colombia, Etiopía y Guatemala para traerte granos de origen único, tostados artesanalmente en nuestra propia tostadora.</p>
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-icon">🌱</div>
+            <div>
+              <strong>100% Sustentable</strong>
+              <span>Granos de comercio justo y empaques eco-friendly.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🏆</div>
+            <div>
+              <strong>Baristas Certificados</strong>
+              <span>Nuestro equipo está certificado por la SCA internacional.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🫘</div>
+            <div>
+              <strong>Tostado Propio</strong>
+              <span>Tostamos en pequeños lotes para máxima frescura.</span>
+            </div>
+          </div>
+        </div>
+        <a href="#contacto" class="btn-primary">Conócenos Más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALERÍA ── -->
+  <section class="gallery-section" id="galeria">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Momentos Únicos</p>
+        <h2 class="section-title">Nuestra <em>Galería</em></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gal-item gal-wide">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80" alt="Latte art" loading="lazy" />
+          <div class="gal-overlay"><span>Latte Art</span></div>
+        </div>
+        <div class="gal-item">
+          <img src="https://images.unsplash.com/photo-1551030173-122aabc4489c?w=500&q=80" alt="Croissant" loading="lazy" />
+          <div class="gal-overlay"><span>Pastelería</span></div>
+        </div>
+        <div class="gal-item">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&q=80" alt="Ambiente cafetería" loading="lazy" />
+          <div class="gal-overlay"><span>Nuestro Espacio</span></div>
+        </div>
+        <div class="gal-item">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=80" alt="Espresso" loading="lazy" />
+          <div class="gal-overlay"><span>Espresso</span></div>
+        </div>
+        <div class="gal-item gal-wide">
+          <img src="https://images.unsplash.com/photo-1468581264429-2548ef9eb732?w=900&q=80" alt="Café y postres" loading="lazy" />
+          <div class="gal-overlay"><span>Momentos Especiales</span></div>
+        </div>
+        <div class="gal-item">
+          <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80" alt="Cold brew" loading="lazy" />
+          <div class="gal-overlay"><span>Cold Brew</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIOS ── -->
+  <section class="testimonials-section" id="testimonios">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Lo Que Dicen</p>
+        <h2 class="section-title">Nuestros <em>Clientes</em></h2>
+      </div>
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-slide active">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>"El mejor espresso que he tomado en la ciudad. El ambiente es único, la atención impecable. Ya es mi lugar favorito para trabajar y disfrutar un buen café."</blockquote>
+            <div class="testimonial-author">
+              <img src="https://i.pravatar.cc/60?img=1" alt="Valentina R." />
+              <div><strong>Valentina R.</strong><span>Diseñadora Gráfica</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Los pedidos por WhatsApp son una maravilla. En 15 minutos tenía mi flat white y mi croissant en la oficina. La calidad es siempre consistente y excepcional."</blockquote>
+            <div class="testimonial-author">
+              <img src="https://i.pravatar.cc/60?img=3" alt="Marcos T." />
+              <div><strong>Marcos T.</strong><span>Emprendedor</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Vine de visita a la ciudad y Café Central fue lo mejor del viaje. El café de Etiopía es extraordinario. Volvería sólo por eso. ¡Indispensable visitarlo!"</blockquote>
+            <div class="testimonial-author">
+              <img src="https://i.pravatar.cc/60?img=5" alt="Sofía M." />
+              <div><strong>Sofía M.</strong><span>Viajera & Foodie</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Celebramos el cumple de mi mamá aquí y fue perfecto. Los pasteles artesanales estaban divinos y el personal nos hizo sentir especiales todo el tiempo."</blockquote>
+            <div class="testimonial-author">
+              <img src="https://i.pravatar.cc/60?img=9" alt="Carolina L." />
+              <div><strong>Carolina L.</strong><span>Contadora</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots"></div>
+      <div class="testimonial-controls">
+        <button class="tcontrol" id="tPrev">←</button>
+        <button class="tcontrol" id="tNext">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HORARIOS Y UBICACION ── -->
+  <section class="location-section" id="ubicacion">
+    <div class="location-grid">
+      <div class="location-info">
+        <p class="section-eyebrow">Encuéntranos</p>
+        <h2 class="section-title">Horarios & <em>Ubicación</em></h2>
+        <div class="info-block">
+          <div class="info-icon">📍</div>
+          <div>
+            <strong>Dirección</strong>
+            <span>Av. Corrientes 1234, CABA<br>Buenos Aires, Argentina</span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">🕐</div>
+          <div>
+            <strong>Horarios</strong>
+            <div class="schedule">
+              <div><span>Lunes – Viernes</span><span>7:00 – 21:00</span></div>
+              <div><span>Sábados</span><span>8:00 – 22:00</span></div>
+              <div><span>Domingos</span><span>9:00 – 20:00</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">📞</div>
+          <div>
+            <strong>Teléfono & WhatsApp</strong>
+            <span>+54 9 11 0000-0000</span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">✉️</div>
+          <div>
+            <strong>Email</strong>
+            <span>hola@cafecentral.com</span>
+          </div>
+        </div>
+        <a href="https://wa.me/5491100000000" class="btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.989.574 3.842 1.567 5.408L2 22l4.74-1.542A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18a7.96 7.96 0 0 1-4.073-1.117l-.292-.174-3.028.985.947-3.02-.19-.31A7.96 7.96 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Chatear por WhatsApp
+        </a>
+      </div>
+      <div class="location-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168878895164!2d-58.38375908433604!3d-34.60373426508575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacf2582d809%3A0xa7a5a5e58e0e4e68!2sAv.+Corrientes%2C+Buenos+Aires!5e0!3m2!1ses!2sar!4v1609459200000!5m2!1ses!2sar" allowfullscreen="" loading="lazy" title="Ubicación Café Central"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACTO ── -->
+  <section class="contact-section" id="contacto">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Estamos Aquí</p>
+        <h2 class="section-title">Escríbenos <em>Hoy</em></h2>
+        <p class="section-desc">¿Tienes preguntas, quieres reservar un evento privado o simplemente decir hola? Nos encantará escucharte.</p>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Nombre completo</label>
+            <input type="text" id="fname" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" name="email" placeholder="tu@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fsubject">Asunto</label>
+          <select id="fsubject" name="subject">
+            <option value="">Seleccionar asunto</option>
+            <option>Reserva de evento privado</option>
+            <option>Consulta sobre el menú</option>
+            <option>Pedido especial</option>
+            <option>Trabajo o colaboración</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fmsg">Mensaje</label>
+          <textarea id="fmsg" name="message" placeholder="Cuéntanos en qué podemos ayudarte..." rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Enviar Mensaje ✉️</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-icon">☕</span>
+          <span class="logo-text">Café <em>Central</em></span>
+        </a>
+        <p>El mejor café de la ciudad,<br>hecho con amor y precisión.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/5491100000000" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.989.574 3.842 1.567 5.408L2 22l4.74-1.542A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18a7.96 7.96 0 0 1-4.073-1.117l-.292-.174-3.028.985.947-3.02-.19-.31A7.96 7.96 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navegar</h4>
+        <a href="#menu">Menú Digital</a>
+        <a href="#nosotros">Sobre Nosotros</a>
+        <a href="#galeria">Galería</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#ubicacion">Horarios</a>
+      </div>
+      <div class="footer-links">
+        <h4>Categorías</h4>
+        <a href="#menu">Cafés Calientes</a>
+        <a href="#menu">Bebidas Frías</a>
+        <a href="#menu">Pastelerías</a>
+        <a href="#menu">Sandwiches</a>
+        <a href="#menu">Desayunos</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contacto</h4>
+        <span>Av. Corrientes 1234, CABA</span>
+        <span>Buenos Aires, Argentina</span>
+        <a href="tel:+5491100000000">+54 9 11 0000-0000</a>
+        <a href="mailto:hola@cafecentral.com">hola@cafecentral.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Café Central. Todos los derechos reservados.</p>
+      <p>Hecho con ❤️ y ☕ en Buenos Aires</p>
+    </div>
+  </footer>
+
+  <!-- ── WhatsApp Float ── -->
+  <a href="https://wa.me/5491100000000?text=Hola!%20Quiero%20hacer%20un%20pedido" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.989.574 3.842 1.567 5.408L2 22l4.74-1.542A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18a7.96 7.96 0 0 1-4.073-1.117l-.292-.174-3.028.985.947-3.02-.19-.31A7.96 7.96 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+    <span class="wa-tooltip">¡Pedir ahora!</span>
+  </a>
+
+  <!-- ── Cart Counter ── -->
+  <button class="cart-float" id="cartFloat" style="display:none;" aria-label="Ver carrito">
+    🛒 <span id="cartCount">0</span>
+  </button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
